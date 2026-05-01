@@ -1,404 +1,329 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Shield, Plus, Trash2, Edit, Save, X } from 'lucide-react'
-import { db } from '../lib/firebase'
-import { 
-  collection, 
-  addDoc, 
-  getDocs, 
-  deleteDoc, 
-  doc, 
-  updateDoc 
-} from 'firebase/firestore'
+﻿import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
-export default function Admin() {
-  const [authenticated, setAuthenticated] = useState(false)
-  const [password, setPassword] = useState('')
-  const [customMovies, setCustomMovies] = useState([])
-  const [showAddForm, setShowAddForm] = useState(false)
-  const [editingMovie, setEditingMovie] = useState(null)
+function Admin() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [localMovies, setLocalMovies] = useState([]);
+  const [globalMovies, setGlobalMovies] = useState([]);
+  const [activeTab, setActiveTab] = useState('local');
   const [formData, setFormData] = useState({
+    id: '',
     title: '',
-    year: '',
-    genre: '',
-    rating: '',
-    plot: '',
-    poster: '',
-    backdrop: '',
-    trailerUrl: '',
-    videoUrl480: '',
-    videoUrl720: '',
-    videoUrl1080: '',
-    vjName: '',
-    cast: '',
-    director: '',
-    runtime: ''
-  })
+    language: 'Luganda',
+    overview: '',
+    release_date: '',
+    poster_url: '',
+    stream_url: '',
+    rating: 0
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [message, setMessage] = useState({ text: '', type: '' });
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (authenticated) {
-      loadCustomMovies()
-    }
-  }, [authenticated])
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser && currentUser.email === 'travormicheal7@gmail.com') {
+        setUser(currentUser);
+        loadMovies();
+      } else {
+        navigate('/login');
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
-  const handleLogin = (e) => {
-    e.preventDefault()
-    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'mkfilms2024'
-    if (password === adminPassword) {
-      setAuthenticated(true)
-    } else {
-      alert('Incorrect password')
-    }
-  }
-
-  const loadCustomMovies = async () => {
+  const loadMovies = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'customMovies'))
-      const movies = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }))
-      setCustomMovies(movies)
-    } catch (error) {
-      console.error('Error loading custom movies:', error)
+      const localRes = await fetch('/movies_local.json');
+      const localData = await localRes.json();
+      setLocalMovies(localData);
+      
+      const globalRes = await fetch('/movies.json');
+      const globalData = await globalRes.json();
+      setGlobalMovies(globalData);
+    } catch (err) {
+      console.error('Error loading movies:', err);
     }
-  }
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     
-    try {
-      if (editingMovie) {
-        // Update existing movie
-        await updateDoc(doc(db, 'customMovies', editingMovie.id), formData)
-        alert('Movie updated successfully!')
-      } else {
-        // Add new movie
-        await addDoc(collection(db, 'customMovies'), {
-          ...formData,
-          createdAt: new Date()
-        })
-        alert('Movie added successfully!')
-      }
-      
-      resetForm()
-      loadCustomMovies()
-    } catch (error) {
-      console.error('Error saving movie:', error)
-      alert('Error saving movie')
+    if (!formData.title || !formData.stream_url) {
+      setMessage({ text: 'Title and Stream URL are required', type: 'error' });
+      return;
     }
-  }
 
-  const handleDelete = async (movieId) => {
-    if (confirm('Are you sure you want to delete this movie?')) {
-      try {
-        await deleteDoc(doc(db, 'customMovies', movieId))
-        alert('Movie deleted successfully!')
-        loadCustomMovies()
-      } catch (error) {
-        console.error('Error deleting movie:', error)
-        alert('Error deleting movie')
-      }
+    const newMovie = {
+      id: isEditing ? editingId : `local_${Date.now()}`,
+      title: formData.title,
+      language: formData.language,
+      overview: formData.overview || 'No description available',
+      release_date: formData.release_date || new Date().toISOString().split('T')[0],
+      poster_url: formData.poster_url || 'https://via.placeholder.com/300x450?text=No+Poster',
+      stream_url: formData.stream_url,
+      rating: parseFloat(formData.rating) || 5.0
+    };
+
+    let updatedMovies;
+    if (isEditing) {
+      updatedMovies = localMovies.map(m => m.id === editingId ? newMovie : m);
+    } else {
+      updatedMovies = [newMovie, ...localMovies];
     }
-  }
 
-  const handleEdit = (movie) => {
-    setEditingMovie(movie)
+    setLocalMovies(updatedMovies);
+    downloadJSON(updatedMovies);
+    
+    setMessage({ text: isEditing ? 'Movie updated successfully' : 'Movie added successfully', type: 'success' });
+    resetForm();
+    
+    setTimeout(() => setMessage({ text: '', type: '' }), 3000);
+  };
+
+  const downloadJSON = (movies) => {
+    const dataStr = JSON.stringify(movies, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'movies_local.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    setMessage({ text: 'JSON file downloaded. Upload to /public folder.', type: 'success' });
+  };
+
+  const editMovie = (movie) => {
     setFormData({
-      title: movie.title || '',
-      year: movie.year || '',
-      genre: movie.genre || '',
-      rating: movie.rating || '',
-      plot: movie.plot || '',
-      poster: movie.poster || '',
-      backdrop: movie.backdrop || '',
-      trailerUrl: movie.trailerUrl || '',
-      videoUrl480: movie.videoUrl480 || '',
-      videoUrl720: movie.videoUrl720 || '',
-      videoUrl1080: movie.videoUrl1080 || '',
-      vjName: movie.vjName || '',
-      cast: movie.cast || '',
-      director: movie.director || '',
-      runtime: movie.runtime || ''
-    })
-    setShowAddForm(true)
-  }
+      id: movie.id,
+      title: movie.title,
+      language: movie.language || 'Luganda',
+      overview: movie.overview || '',
+      release_date: movie.release_date || '',
+      poster_url: movie.poster_url || '',
+      stream_url: movie.stream_url || '',
+      rating: movie.rating || 0
+    });
+    setIsEditing(true);
+    setEditingId(movie.id);
+  };
+
+  const deleteMovie = (id) => {
+    if (window.confirm('Are you sure you want to delete this movie?')) {
+      const updatedMovies = localMovies.filter(m => m.id !== id);
+      setLocalMovies(updatedMovies);
+      downloadJSON(updatedMovies);
+      setMessage({ text: 'Movie deleted', type: 'success' });
+    }
+  };
 
   const resetForm = () => {
     setFormData({
+      id: '',
       title: '',
-      year: '',
-      genre: '',
-      rating: '',
-      plot: '',
-      poster: '',
-      backdrop: '',
-      trailerUrl: '',
-      videoUrl480: '',
-      videoUrl720: '',
-      videoUrl1080: '',
-      vjName: '',
-      cast: '',
-      director: '',
-      runtime: ''
-    })
-    setEditingMovie(null)
-    setShowAddForm(false)
-  }
+      language: 'Luganda',
+      overview: '',
+      release_date: '',
+      poster_url: '',
+      stream_url: '',
+      rating: 0
+    });
+    setIsEditing(false);
+    setEditingId(null);
+  };
 
-  if (!authenticated) {
+  if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="glass max-w-md w-full p-8 rounded-2xl border border-white/10"
-        >
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <Shield className="w-10 h-10 text-luxury-red" />
-            <h2 className="text-2xl font-title font-bold text-white">Admin Access</h2>
-          </div>
-
-          <form onSubmit={handleLogin}>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter admin password"
-              className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red mb-4"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full bg-luxury-red hover:bg-luxury-gold text-white px-6 py-3 rounded-full transition glow-red font-semibold"
-            >
-              Login
-            </button>
-          </form>
-        </motion.div>
+      <div style={{ background: 'black', color: 'white', minHeight: '100vh', paddingTop: '100px', textAlign: 'center' }}>
+        <p>Loading...</p>
       </div>
-    )
+    );
   }
+
+  if (!user) return null;
 
   return (
-    <div className="min-h-screen pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center space-x-3">
-            <Shield className="w-8 h-8 text-luxury-red" />
-            <h1 className="text-3xl font-title font-bold text-white">Admin Panel</h1>
+    <div style={{ background: 'black', color: 'white', minHeight: '100vh', paddingTop: '80px', paddingLeft: '40px', paddingRight: '40px' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '32px', marginBottom: '8px' }}>Admin Panel</h1>
+        <p style={{ color: '#888', marginBottom: '30px' }}>Manage VJ Mode movies (Luganda/Runyankole content)</p>
+
+        {message.text && (
+          <div style={{
+            padding: '12px 20px',
+            borderRadius: '8px',
+            marginBottom: '20px',
+            background: message.type === 'success' ? '#00ff0011' : '#ff000011',
+            border: `1px solid ${message.type === 'success' ? '#00ff00' : '#ff0000'}`,
+            color: message.type === 'success' ? '#00ff00' : '#ff0000'
+          }}>
+            {message.text}
           </div>
+        )}
+
+        {/* Tabs */}
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '30px', borderBottom: '1px solid #333' }}>
           <button
-            onClick={() => setShowAddForm(!showAddForm)}
-            className="flex items-center space-x-2 bg-luxury-red hover:bg-luxury-gold text-white px-6 py-3 rounded-full transition glow-red"
+            onClick={() => setActiveTab('local')}
+            style={{
+              padding: '10px 20px',
+              background: 'transparent',
+              border: 'none',
+              color: activeTab === 'local' ? '#e50914' : '#888',
+              borderBottom: activeTab === 'local' ? '2px solid #e50914' : 'none',
+              cursor: 'pointer',
+              fontSize: '16px'
+            }}
           >
-            {showAddForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-            <span>{showAddForm ? 'Cancel' : 'Add Movie'}</span>
+            VJ Mode Movies (Local)
+          </button>
+          <button
+            onClick={() => setActiveTab('global')}
+            style={{
+              padding: '10px 20px',
+              background: 'transparent',
+              border: 'none',
+              color: activeTab === 'global' ? '#e50914' : '#888',
+              borderBottom: activeTab === 'global' ? '2px solid #e50914' : 'none',
+              cursor: 'pointer',
+              fontSize: '16px'
+            }}
+          >
+            Global Movies (Read Only)
           </button>
         </div>
 
-        {/* Add/Edit Form */}
-        {showAddForm && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="glass rounded-lg p-6 mb-8 border border-white/10"
-          >
-            <h2 className="text-2xl font-title font-bold text-white mb-6">
-              {editingMovie ? 'Edit Movie' : 'Add New Movie'}
-            </h2>
+        {activeTab === 'local' ? (
+          <>
+            {/* Add/Edit Form */}
+            <div style={{ background: '#111', padding: '20px', borderRadius: '12px', marginBottom: '30px' }}>
+              <h2 style={{ fontSize: '20px', marginBottom: '20px' }}>{isEditing ? 'Edit Movie' : 'Add New VJ Movie'}</h2>
+              <form onSubmit={handleSubmit}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '15px' }}>
+                  <input
+                    name="title"
+                    placeholder="Movie Title*"
+                    value={formData.title}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                    required
+                  />
+                  <select
+                    name="language"
+                    value={formData.language}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                  >
+                    <option value="Luganda">Luganda</option>
+                    <option value="Runyankole">Runyankole</option>
+                    <option value="English">English</option>
+                  </select>
+                  <input
+                    name="stream_url"
+                    placeholder="Stream URL* (Contabo/Dropbox)"
+                    value={formData.stream_url}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                    required
+                  />
+                  <input
+                    name="poster_url"
+                    placeholder="Poster URL"
+                    value={formData.poster_url}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                  />
+                  <input
+                    name="overview"
+                    placeholder="Description"
+                    value={formData.overview}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                  />
+                  <input
+                    name="rating"
+                    type="number"
+                    step="0.1"
+                    placeholder="Rating (0-10)"
+                    value={formData.rating}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                  />
+                  <input
+                    name="release_date"
+                    type="date"
+                    placeholder="Release Date"
+                    value={formData.release_date}
+                    onChange={handleInputChange}
+                    style={{ padding: '10px', borderRadius: '8px', border: '1px solid #333', background: '#222', color: 'white' }}
+                  />
+                </div>
+                <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                  <button type="submit" style={{ padding: '10px 20px', background: '#e50914', border: 'none', borderRadius: '8px', color: 'white', cursor: 'pointer' }}>
+                    {isEditing ? 'Update Movie' : 'Add Movie'}
+                  </button>
+                  {isEditing && (
+                    <button type="button" onClick={resetForm} style={{ padding: '10px 20px', background: '#333', border: 'none', borderRadius: '8px', color: 'white', cursor: 'pointer' }}>
+                      Cancel
+                    </button>
+                  )}
+                </div>
+              </form>
+            </div>
 
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Title *"
-                value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-                required
-              />
-
-              <input
-                type="number"
-                placeholder="Year *"
-                value={formData.year}
-                onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-                required
-              />
-
-              <input
-                type="text"
-                placeholder="Genre (e.g., Action, Drama)"
-                value={formData.genre}
-                onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="number"
-                step="0.1"
-                placeholder="Rating (0-10)"
-                value={formData.rating}
-                onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="Poster URL"
-                value={formData.poster}
-                onChange={(e) => setFormData({ ...formData, poster: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="Backdrop URL"
-                value={formData.backdrop}
-                onChange={(e) => setFormData({ ...formData, backdrop: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="YouTube Trailer URL"
-                value={formData.trailerUrl}
-                onChange={(e) => setFormData({ ...formData, trailerUrl: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="VJ Name (optional)"
-                value={formData.vjName}
-                onChange={(e) => setFormData({ ...formData, vjName: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="480p Video URL"
-                value={formData.videoUrl480}
-                onChange={(e) => setFormData({ ...formData, videoUrl480: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="720p Video URL"
-                value={formData.videoUrl720}
-                onChange={(e) => setFormData({ ...formData, videoUrl720: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="1080p Video URL"
-                value={formData.videoUrl1080}
-                onChange={(e) => setFormData({ ...formData, videoUrl1080: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="number"
-                placeholder="Runtime (minutes)"
-                value={formData.runtime}
-                onChange={(e) => setFormData({ ...formData, runtime: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="Director"
-                value={formData.director}
-                onChange={(e) => setFormData({ ...formData, director: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <input
-                type="text"
-                placeholder="Cast (comma separated)"
-                value={formData.cast}
-                onChange={(e) => setFormData({ ...formData, cast: e.target.value })}
-                className="bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red"
-              />
-
-              <textarea
-                placeholder="Plot/Overview *"
-                value={formData.plot}
-                onChange={(e) => setFormData({ ...formData, plot: e.target.value })}
-                className="md:col-span-2 bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-luxury-red resize-none"
-                rows="4"
-                required
-              />
-
-              <button
-                type="submit"
-                className="md:col-span-2 flex items-center justify-center space-x-2 bg-luxury-red hover:bg-luxury-gold text-white px-6 py-3 rounded-full transition glow-red font-semibold"
-              >
-                <Save className="w-5 h-5" />
-                <span>{editingMovie ? 'Update Movie' : 'Add Movie'}</span>
-              </button>
-            </form>
-          </motion.div>
-        )}
-
-        {/* Movies List */}
-        <div className="glass rounded-lg p-6 border border-white/10">
-          <h2 className="text-2xl font-title font-bold text-white mb-6">
-            Custom Movies ({customMovies.length})
-          </h2>
-
-          {customMovies.length === 0 ? (
-            <p className="text-white/60 text-center py-8">No custom movies added yet</p>
-          ) : (
-            <div className="space-y-4">
-              {customMovies.map((movie) => (
-                <div
-                  key={movie.id}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10"
-                >
-                  <div className="flex items-center space-x-4">
-                    {movie.poster && (
-                      <img
-                        src={movie.poster}
-                        alt={movie.title}
-                        className="w-16 h-24 object-cover rounded"
-                      />
-                    )}
-                    <div>
-                      <h3 className="text-white font-semibold">{movie.title}</h3>
-                      <p className="text-white/60 text-sm">
-                        {movie.year} • {movie.genre} • {movie.rating}/10
-                      </p>
-                      {movie.vjName && (
-                        <p className="text-luxury-gold text-sm">VJ: {movie.vjName}</p>
-                      )}
+            {/* Movies List */}
+            <div>
+              <h2 style={{ fontSize: '20px', marginBottom: '15px' }}>VJ Movies ({localMovies.length})</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {localMovies.map((movie) => (
+                  <div key={movie.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px', background: '#111', borderRadius: '8px' }}>
+                    <div style={{ flex: 1 }}>
+                      <strong>{movie.title}</strong>
+                      <span style={{ marginLeft: '10px', fontSize: '12px', color: '#ff9900' }}>{movie.language || 'Luganda'}</span>
+                      <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>{movie.stream_url?.substring(0, 60)}...</div>
+                    </div>
+                    <div style={{ display: 'flex', gap: '10px' }}>
+                      <button onClick={() => editMovie(movie)} style={{ padding: '5px 15px', background: '#444', border: 'none', borderRadius: '5px', color: 'white', cursor: 'pointer' }}>Edit</button>
+                      <button onClick={() => deleteMovie(movie.id)} style={{ padding: '5px 15px', background: '#e50914', border: 'none', borderRadius: '5px', color: 'white', cursor: 'pointer' }}>Delete</button>
                     </div>
                   </div>
-
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() => handleEdit(movie)}
-                      className="p-2 glass hover:bg-white/10 text-white rounded-lg transition border border-white/20"
-                    >
-                      <Edit className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(movie.id)}
-                      className="p-2 bg-luxury-red/20 hover:bg-luxury-red text-white rounded-lg transition border border-luxury-red/30"
-                    >
-                      <Trash2 className="w-5 h-5" />
-                    </button>
-                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div>
+            <h2 style={{ fontSize: '20px', marginBottom: '15px' }}>Global Movies ({globalMovies.length})</h2>
+            <p style={{ color: '#666', marginBottom: '20px' }}>Global movies are managed via TMDB API. Read only.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '15px' }}>
+              {globalMovies.slice(0, 50).map((movie) => (
+                <div key={movie.id} style={{ padding: '10px', background: '#111', borderRadius: '8px' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 'bold' }}>{movie.title}</p>
+                  <p style={{ fontSize: '12px', color: '#666' }}>{movie.release_date?.split('-')[0]}</p>
                 </div>
               ))}
             </div>
-          )}
+          </div>
+        )}
+
+        <div style={{ marginTop: '30px', padding: '15px', background: '#111', borderRadius: '8px' }}>
+          <p style={{ fontSize: '12px', color: '#666' }}>
+            Instructions: After adding/editing/deleting movies, a JSON file will download. 
+            Upload this file to your /public folder as 'movies_local.json' and redeploy.
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+export default Admin;

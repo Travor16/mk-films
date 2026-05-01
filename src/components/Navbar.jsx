@@ -6,7 +6,7 @@ import { auth } from '../lib/firebase'
 import { signOut } from 'firebase/auth'
 import useStore from '../store/useStore'
 
-export default function Navbar() {
+export default function Navbar({ library, onSwitchLibrary }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { user, setUser, searchQuery, setSearchQuery } = useStore()
@@ -43,38 +43,44 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-gradient-to-b from-black/60 via-black/30 to-transparent' 
-          : 'bg-black/95 backdrop-blur-sm border-b border-white/10'
+          ? 'bg-black/95 backdrop-blur-sm border-b border-white/10' 
+          : 'bg-black/60 backdrop-blur-sm'
       }`}
     >
       <div className="px-4 md:px-12">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-8">
-            <Link to="/" className="text-red-600 text-3xl md:text-4xl font-black tracking-tighter hover:text-red-500 transition">
-              LUXFLIX
+          <Link to="/" className="text-red-600 text-2xl md:text-3xl font-black tracking-tighter hover:text-red-500 transition">
+            LUXFLIX
+          </Link>
+          
+          {/* Desktop Navigation - Center */}
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-white hover:text-gray-300 text-sm transition">
+              Home
             </Link>
+            <Link to="/?filter=trending" className="text-white hover:text-gray-300 text-sm transition">
+              Trending
+            </Link>
+            <Link to="/?filter=top-rated" className="text-white hover:text-gray-300 text-sm transition">
+              Top Rated
+            </Link>
+            {user && (
+              <Link to="/profile" className="text-white hover:text-gray-300 text-sm transition">
+                My List
+              </Link>
+            )}
             
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <Link to="/" className="text-white hover:text-gray-300 text-sm transition">
-                Home
-              </Link>
-              <Link to="/?filter=trending" className="text-white hover:text-gray-300 text-sm transition">
-                Trending
-              </Link>
-              <Link to="/?filter=top-rated" className="text-white hover:text-gray-300 text-sm transition">
-                Top Rated
-              </Link>
-              {user && (
-                <Link to="/profile" className="text-white hover:text-gray-300 text-sm transition">
-                  My List
-                </Link>
-              )}
-            </div>
+            {/* Mode Toggle - Subtle */}
+            <button
+              onClick={() => onSwitchLibrary(library === 'global' ? 'local' : 'global')}
+              className="ml-4 text-xs text-gray-400 hover:text-white transition border-l border-gray-700 pl-4"
+            >
+              {library === 'global' ? 'Switch to VJ Mode' : 'Switch to Global Mode'}
+            </button>
           </div>
 
-          {/* User Controls */}
+          {/* User Controls - Right */}
           <div className="flex items-center space-x-4">
             <button className="text-white hover:text-gray-300 transition">
               <Search className="w-5 h-5" />
@@ -140,6 +146,18 @@ export default function Navbar() {
                 My List
               </Link>
             )}
+            
+            {/* Mode Toggle in Mobile Menu */}
+            <button
+              onClick={() => {
+                onSwitchLibrary(library === 'global' ? 'local' : 'global')
+                setMobileMenuOpen(false)
+              }}
+              className="block w-full text-left text-gray-400 hover:text-white transition py-1 text-sm"
+            >
+              {library === 'global' ? 'Switch to VJ Mode' : 'Switch to Global Mode'}
+            </button>
+            
             <div className="pt-2 border-t border-gray-800">
               {user ? (
                 <button
