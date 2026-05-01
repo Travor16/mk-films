@@ -1,105 +1,58 @@
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import Hero from '../components/Hero'
-import MovieRow from '../components/MovieRow'
-import MovieGrid from '../components/MovieGrid'
-import tmdbApi from '../lib/tmdb'
-import useStore from '../store/useStore'
+﻿import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Home() {
-  const [searchParams] = useSearchParams()
-  const [trendingMovies, setTrendingMovies] = useState([])
-  const [popularMovies, setPopularMovies] = useState([])
-  const [topRatedMovies, setTopRatedMovies] = useState([])
-  const [actionMovies, setActionMovies] = useState([])
-  const [comedyMovies, setComedyMovies] = useState([])
-  const [horrorMovies, setHorrorMovies] = useState([])
-  const [loading, setLoading] = useState(true)
-  const { searchQuery } = useStore()
-
-  const filter = searchParams.get('filter')
-  const search = searchParams.get('search')
+function Home() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!search && !searchQuery) {
-      loadAllMovies()
-    }
-  }, [search, searchQuery])
+    fetch('/movies.json')
+      .then(res => res.json())
+      .then(data => {
+        setMovies(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
 
-  const loadAllMovies = async () => {
-    try {
-      setLoading(true)
-      
-      const [trending, popular, topRated, action, comedy, horror] = await Promise.all([
-        tmdbApi.getTrending(),
-        tmdbApi.getPopular(),
-        tmdbApi.getTopRated(),
-        tmdbApi.getByGenre(28), // Action
-        tmdbApi.getByGenre(35), // Comedy
-        tmdbApi.getByGenre(27), // Horror
-      ])
-
-      setTrendingMovies(trending.results || [])
-      setPopularMovies(popular.results || [])
-      setTopRatedMovies(topRated.results || [])
-      setActionMovies(action.results || [])
-      setComedyMovies(comedy.results || [])
-      setHorrorMovies(horror.results || [])
-    } catch (error) {
-      console.error('Error loading movies:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  // Show search results
-  if (search || searchQuery) {
+  if (loading) {
     return (
-      <div className="min-h-screen pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-title font-bold text-white mb-8">
-            Search Results for "{search || searchQuery}"
-          </h1>
-          <MovieGrid fetchFunction={tmdbApi.getPopular} />
-        </div>
+      <div style={{ background: 'black', color: 'white', minHeight: '100vh', paddingTop: '80px' }}>
+        <p style={{ textAlign: 'center' }}>Loading movies...</p>
       </div>
-    )
+    );
   }
 
-  // Show filtered view
-  if (filter === 'trending') {
-    return (
-      <div className="min-h-screen pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MovieGrid title="Trending Now" fetchFunction={tmdbApi.getTrending} />
-        </div>
-      </div>
-    )
-  }
-
-  if (filter === 'top-rated') {
-    return (
-      <div className="min-h-screen pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MovieGrid title="Top Rated Movies" fetchFunction={tmdbApi.getTopRated} />
-        </div>
-      </div>
-    )
-  }
-
-  // Default home view with hero and rows
   return (
-    <div className="min-h-screen">
-      <Hero />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10">
-        <MovieRow title="Trending Now" movies={trendingMovies} loading={loading} />
-        <MovieRow title="Popular Movies" movies={popularMovies} loading={loading} />
-        <MovieRow title="Top Rated" movies={topRatedMovies} loading={loading} />
-        <MovieRow title="Action & Adventure" movies={actionMovies} loading={loading} />
-        <MovieRow title="Comedy" movies={comedyMovies} loading={loading} />
-        <MovieRow title="Horror" movies={horrorMovies} loading={loading} />
+    <div style={{ background: 'black', color: 'white', minHeight: '100vh', paddingTop: '80px', paddingLeft: '20px', paddingRight: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '16px' }}>
+        {movies.map((movie, index) => {
+          const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : null;
+          return (
+            <Link to={`/movie/${movie.id}`} key={movie.id || index} style={{ textDecoration: 'none', color: 'white' }}>
+              <div style={{ cursor: 'pointer' }}>
+                {posterUrl ? (
+                  <img
+                    src={posterUrl}
+                    alt={movie.title}
+                    style={{ width: '100%', borderRadius: '8px', aspectRatio: '2/3', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <div style={{ width: '100%', aspectRatio: '2/3', borderRadius: '8px', background: '#333', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    No poster
+                  </div>
+                )}
+                <p style={{ marginTop: '8px', fontWeight: 'bold', fontSize: '14px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{movie.title}</p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
-  )
+  );
 }
+
+export default Home;

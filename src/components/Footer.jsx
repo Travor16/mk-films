@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2 mb-4">
               <Film className="w-8 h-8 text-luxury-red" />
               <span className="text-2xl font-title font-bold text-luxury-gold">
-                M&K FILMS
+                LUXFLIX
               </span>
             </div>
             <p className="text-white/60 text-sm mb-4">
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-white/40 text-sm">
-          <p>&copy; {new Date().getFullYear()} M&K FILMS. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} LUXFLIX. All rights reserved.</p>
           <p className="mt-2 text-xs">
             Movie data provided by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
           </p>

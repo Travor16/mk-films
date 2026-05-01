@@ -80,6 +80,41 @@ export const tmdbApi = {
       v => v.type === 'Trailer' && v.site === 'YouTube'
     )
     return trailer ? `https://www.youtube.com/embed/${trailer.key}?autoplay=1&mute=1&controls=0&loop=1&playlist=${trailer.key}` : null
+  },
+
+  // Check if video is available for streaming/download
+  checkVideoAvailability: async (movieId) => {
+    try {
+      const VIDEO_API_BASE = import.meta.env.VITE_VIDEO_API_URL
+      
+      if (!VIDEO_API_BASE) {
+        return { available: false, message: 'Video API not configured' }
+      }
+      
+      const response = await fetch(`${VIDEO_API_BASE}/check/${movieId}`)
+      return response.json()
+    } catch (error) {
+      console.error('Error checking video availability:', error)
+      return { available: false, message: 'Unable to check availability' }
+    }
+  },
+
+  // Get download URL
+  getDownloadUrl: async (movieId, quality = '1080p') => {
+    try {
+      const VIDEO_API_BASE = import.meta.env.VITE_VIDEO_API_URL
+      
+      if (!VIDEO_API_BASE) {
+        throw new Error('Video API not configured')
+      }
+      
+      const response = await fetch(`${VIDEO_API_BASE}/download/${movieId}?quality=${quality}`)
+      const data = await response.json()
+      return data.downloadUrl
+    } catch (error) {
+      console.error('Error getting download URL:', error)
+      throw error
+    }
   }
 }
 

@@ -1,0 +1,602 @@
+[
+    {
+        "id":  1318447,
+        "imdb_id":  "tt16431404",
+        "title":  "Apex",
+        "overview":  "A grieving woman pushing her limits on a solo adventure in the Australian wild is ensnared in a twisted game with a cunning killer who thinks she\u0027s prey.",
+        "release_date":  "2026-04-24",
+        "poster_path":  "/eTp7gSPkSF3Aw79mNx1NkBP1PZT.jpg",
+        "backdrop_path":  "/p8777bPIlyFYcjqP2hU8htoz1RG.jpg",
+        "vote_average":  6.511
+    },
+    {
+        "id":  1226863,
+        "imdb_id":  "tt28650488",
+        "title":  "The Super Mario Galaxy Movie",
+        "overview":  "Having thwarted Bowser\u0027s previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir\u0027s crusade.",
+        "release_date":  "2026-04-01",
+        "poster_path":  "/eJGWx219ZcEMVQJhAgMiqo8tYY.jpg",
+        "backdrop_path":  "/kxQiIJ4gVcD3K6o14MJ72p5yRcE.jpg",
+        "vote_average":  6.732
+    },
+    {
+        "id":  1523145,
+        "imdb_id":  "tt38190257",
+        "title":  "Your Heart Will Be Broken",
+        "overview":  "High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.",
+        "release_date":  "2026-03-26",
+        "poster_path":  "/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg",
+        "backdrop_path":  "/1x9e0qWonw634NhIsRdvnneeqvN.jpg",
+        "vote_average":  6.9
+    },
+    {
+        "id":  936075,
+        "imdb_id":  "tt11378946",
+        "title":  "Michael",
+        "overview":  "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from the discovery of his extraordinary talent as the lead of the Jackson Five, to the visionary artist whose creative ambition fueled a relentless pursuit to become the biggest entertainer in the world, highlighting both his life off-stage and some of the most iconic performances from his early solo career.",
+        "release_date":  "2026-04-22",
+        "poster_path":  "/j57QWe3OoaXL9Idi9gLtsAybWLP.jpg",
+        "backdrop_path":  "/xBT0oNq6rsTFv4SxG5uGRIEOrq6.jpg",
+        "vote_average":  7.55
+    },
+    {
+        "id":  1198994,
+        "imdb_id":  "tt8036976",
+        "title":  "Send Help",
+        "overview":  "Two colleagues become stranded on a deserted island, the only survivors of a plane crash. On the island, they must overcome past grievances and work together to survive, but ultimately, it\u0027s a battle of wills and wits to make it out alive.",
+        "release_date":  "2026-01-22",
+        "poster_path":  "/mjkS2iAgWj3ik1DTjvI15nHZ7yl.jpg",
+        "backdrop_path":  "/gCmfeKmEAZBP5gcXpiqb0gii9rS.jpg",
+        "vote_average":  7.025
+    },
+    {
+        "id":  1292695,
+        "imdb_id":  "tt31728330",
+        "title":  "They Will Kill You",
+        "overview":  "A woman answers a help wanted ad to be a housekeeper in a mysterious New York City high-rise, unaware that she is entering a community that has seen a number of disappearances over the years and may be under the grip of a Satanic cult.",
+        "release_date":  "2026-03-25",
+        "poster_path":  "/6oI4oQKTWMVUlr8Ivqydp28Ruu6.jpg",
+        "backdrop_path":  "/qnTdOizsXBzYu3uIbfhHSfE29TE.jpg",
+        "vote_average":  6.6
+    },
+    {
+        "id":  1327819,
+        "imdb_id":  "tt26443616",
+        "title":  "Hoppers",
+        "overview":  "Scientists have discovered how to \u0027hop\u0027 human consciousness into lifelike robotic animals, allowing people to communicate with animals as animals. Animal lover Mabel seizes an opportunity to use the technology, uncovering mysteries within the animal world beyond anything she could have imagined.",
+        "release_date":  "2026-03-04",
+        "poster_path":  "/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg",
+        "backdrop_path":  "/u53UYu5XG2hNgWGvs3xGhAVzypl.jpg",
+        "vote_average":  7.697
+    },
+    {
+        "id":  83533,
+        "imdb_id":  "tt1757678",
+        "title":  "Avatar: Fire and Ash",
+        "overview":  "In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na\u0027vi tribe led by the ruthless Varang. Jake\u0027s family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits.",
+        "release_date":  "2025-12-17",
+        "poster_path":  "/aabwWZWx6z1aYP4PX2ADvbDKktd.jpg",
+        "backdrop_path":  "/iN41Ccw4DctL8npfmYg1j5Tr1eb.jpg",
+        "vote_average":  7.373
+    },
+    {
+        "id":  980431,
+        "imdb_id":  "tt18259538",
+        "title":  "Avatar Aang: The Last Airbender",
+        "overview":  "Avatar Aang, the world\u0027s last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+        "release_date":  "2026-10-09",
+        "poster_path":  "/29Jdsak3SrwGds5k1t43kH6Khed.jpg",
+        "backdrop_path":  "/sS3zGYFPcfM5pArVNWl6qLyaSmU.jpg",
+        "vote_average":  0.0
+    },
+    {
+        "id":  1613798,
+        "imdb_id":  "tt37989803",
+        "title":  "Vengeance",
+        "overview":  "The brutal murder of the wife of “Toro,” a military hero in the special forces, turns him into a man with a single purpose: revenge. After a stroke of fate makes him a millionaire, Carlos transforms his fortune into an arsenal and, together with his closest soldiers, sets out to hunt down those responsible.",
+        "release_date":  "2026-02-26",
+        "poster_path":  "/ygWXPL0RS91JyJPNOfK34eV3bRE.jpg",
+        "backdrop_path":  "/jJmlCFi5EjpH5vHmOczRiVDm0qS.jpg",
+        "vote_average":  6.991
+    },
+    {
+        "id":  10867,
+        "imdb_id":  "tt0213847",
+        "title":  "Malena",
+        "overview":  "12-year-old Renato experiences three significant events on the same day: the beginning of the Second World War, getting a bike, and witnessing the arrival of the gorgeous Malèna. Through his eyes, we see the curse of beauty and loneliness of Malena, whose husband is presumed dead, and, through his soul, we see his love for her.",
+        "release_date":  "2000-10-27",
+        "poster_path":  "/3OyQTl0IGkbnjDxd3MhztfPE34g.jpg",
+        "backdrop_path":  "/lUbc4XVpCe1q4aqZyQqFCIubaDN.jpg",
+        "vote_average":  7.429
+    },
+    {
+        "id":  687163,
+        "imdb_id":  "tt12042730",
+        "title":  "Project Hail Mary",
+        "overview":  "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+        "release_date":  "2026-03-15",
+        "poster_path":  "/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+        "backdrop_path":  "/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
+        "vote_average":  8.209
+    },
+    {
+        "id":  1352874,
+        "imdb_id":  "tt32059878",
+        "title":  "The Crucifix: Blood of the Exorcist",
+        "overview":  "A gruesome discovery in the grounds of their new home plunges a young couple into a maelstrom of spiritual possession, pagan rituals, Viking battles, and violent revenge.",
+        "release_date":  "2025-01-09",
+        "poster_path":  "/u3qOxvlykoTpurg1G8VOcawoePI.jpg",
+        "backdrop_path":  "/be5T7oHxmDG4ytEimwPdmDHZD9N.jpg",
+        "vote_average":  6.0
+    },
+    {
+        "id":  1290821,
+        "imdb_id":  "tt32357218",
+        "title":  "Shelter",
+        "overview":  "A man living in self-imposed exile on a remote island rescues a young girl from a violent storm, setting off a chain of events that forces him out of seclusion to protect her from enemies tied to his past.",
+        "release_date":  "2026-01-28",
+        "poster_path":  "/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg",
+        "backdrop_path":  "/nHxWyy18SvAZ8jJeemtS8k1UNjM.jpg",
+        "vote_average":  6.8
+    },
+    {
+        "id":  350,
+        "imdb_id":  "tt0458352",
+        "title":  "The Devil Wears Prada",
+        "overview":  "A young woman from the Midwest gets more than she bargained for when she moves to New York to become a writer and ends up as the assistant to the tyrannical, larger-than-life editor-in-chief of a major fashion magazine.",
+        "release_date":  "2006-06-29",
+        "poster_path":  "/8912AsVuS7Sj915apArUFbv6F9L.jpg",
+        "backdrop_path":  "/gkh6Nt8DtY1XT4gQsyFq9XAVJlJ.jpg",
+        "vote_average":  7.389
+    },
+    {
+        "id":  1297842,
+        "imdb_id":  "tt27613895",
+        "title":  "GOAT",
+        "overview":  "A small goat with big dreams gets a once-in-a-lifetime shot to join the pros and play roarball, a high-intensity, co-ed, full-contact sport dominated by the fastest, fiercest animals in the world.",
+        "release_date":  "2026-02-11",
+        "poster_path":  "/wfuqMlaExcoYiUEvKfVpUTt1v4u.jpg",
+        "backdrop_path":  "/tq3h43fZy0H80vzf47MAY7R9Mxo.jpg",
+        "vote_average":  7.924
+    },
+    {
+        "id":  1171145,
+        "imdb_id":  "tt32430579",
+        "title":  "Crime 101",
+        "overview":  "When an elusive thief whose high-stakes heists unfold along the iconic 101 freeway in Los Angeles eyes the score of a lifetime, with hopes of this being his final job, his path collides with a disillusioned insurance broker who is facing her own crossroads. Determined to crack the case, a relentless detective closes in on the operation, raising the stakes even higher.",
+        "release_date":  "2026-02-11",
+        "poster_path":  "/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg",
+        "backdrop_path":  "/sl2649wlcocfFU7HKxQgNUEBMnT.jpg",
+        "vote_average":  6.934
+    },
+    {
+        "id":  1311031,
+        "imdb_id":  "tt32820897",
+        "title":  "Demon Slayer: Kimetsu no Yaiba Infinity Castle",
+        "overview":  "The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.",
+        "release_date":  "2025-07-18",
+        "poster_path":  "/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
+        "backdrop_path":  "/1RgPyOhN4DRs225BGTlHJqCudII.jpg",
+        "vote_average":  7.695
+    },
+    {
+        "id":  1470130,
+        "imdb_id":  "tt36647890",
+        "title":  "The Mortuary Assistant",
+        "overview":  "Rebecca Owens, a recent mortuary science graduate takes a night shift job at River Fields Mortuary. Initially, the job seems straightforward — embalming bodies, completing paperwork, and keeping things tidy. But once Rebecca starts working the night shift, things take a dark turn.",
+        "release_date":  "2026-02-13",
+        "poster_path":  "/72AoFPC5TY4DfJwXXS9rPwPeReD.jpg",
+        "backdrop_path":  "/gM1kQRPwOVW1Eos5tVWqcYmHR5S.jpg",
+        "vote_average":  5.518
+    },
+    {
+        "id":  1084242,
+        "imdb_id":  "tt26443597",
+        "title":  "Zootopia 2",
+        "overview":  "After cracking the biggest case in Zootopia\u0027s history, rookie cops Judy Hopps and Nick Wilde find themselves on the twisting trail of a great mystery when Gary De\u0027Snake arrives and turns the animal metropolis upside down. To crack the case, Judy and Nick must go undercover to unexpected new parts of town, where their growing partnership is tested like never before.",
+        "release_date":  "2025-11-26",
+        "poster_path":  "/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
+        "backdrop_path":  "/lgotja3xMoJZbynwHfcQcJAEMWH.jpg",
+        "vote_average":  7.608
+    },
+    {
+        "id":  1207162,
+        "imdb_id":  "tt25868520",
+        "title":  "Rise of the Conqueror",
+        "overview":  "In the 14th-century, as the Silk Road crumbles and rival factions tear the land apart, fearless warrior Timur emerges from exile. Stripped of everything, he fights to unite the fractured kingdoms, using strategy and sheer will to carve an empire from chaos. Undefeated in battle and widely regarded as one of history’s greatest military leaders and tacticians, not to mention one of its most brutal, Timur would found the Timurid Empire, which ruled over modern-day Afghanistan, Iran and Central Asia.",
+        "release_date":  "2026-04-09",
+        "poster_path":  "/9cRE0DsM6CNIiY9Ah3cd8oc3n1Y.jpg",
+        "backdrop_path":  "/9gWrxuOJeArUbvnqrZALSjhPv9Y.jpg",
+        "vote_average":  5.7
+    },
+    {
+        "id":  1601797,
+        "imdb_id":  "tt35979013",
+        "title":  "¿Quieres ser mi novia?",
+        "overview":  "Javi and Lu\u0027s relationship faces dangerous territory as old and new temptations emerge: a young woman reigniting Javi\u0027s chemistry and a mature man pursuing Lu. Through humor, entanglements, and surprises, their love is tested.",
+        "release_date":  "2026-02-12",
+        "poster_path":  "/oscW8xV8EhRYj7iAhyVlBohKqxo.jpg",
+        "backdrop_path":  "/1ZruuRXztqC3QQybbgbVxVrdNjv.jpg",
+        "vote_average":  8.438
+    },
+    {
+        "id":  1641319,
+        "imdb_id":  "tt39538786",
+        "title":  "Sniper: No Nation",
+        "overview":  "Brandon Beckett and Agent Zero lead a rescue mission in Costa Verde when their friends are taken hostage.",
+        "release_date":  "2026-04-07",
+        "poster_path":  "/tUmARo0TZEK1EaSuS6dU35FhDyU.jpg",
+        "backdrop_path":  "/7lizs4SuEU2ihkkAa0SZ66NtHbl.jpg",
+        "vote_average":  6.4
+    },
+    {
+        "id":  1242898,
+        "imdb_id":  "tt31227572",
+        "title":  "Predator: Badlands",
+        "overview":  "Cast out from his clan, a young Predator finds an unlikely ally in a damaged android and embarks on a treacherous journey in search of the ultimate adversary.",
+        "release_date":  "2025-11-05",
+        "poster_path":  "/pHpq9yNUIo6aDoCXEBzjSolywgz.jpg",
+        "backdrop_path":  "/gaKFXcB5J1gz0QqYj8bWIfrPc04.jpg",
+        "vote_average":  7.688
+    },
+    {
+        "id":  1314481,
+        "imdb_id":  "tt33612209",
+        "title":  "The Devil Wears Prada 2",
+        "overview":  "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway\u0027s position within. The duo reconnect with former assistant Emily Charlton, now the head of a luxury brand that possesses funding which could ensure Runway\u0027s survival.",
+        "release_date":  "2026-04-29",
+        "poster_path":  "/sRTYF65JvbHLoC3LoBj4UKYqIlA.jpg",
+        "backdrop_path":  "/Af907x5h9W1wVis8XrSd7ynTWuy.jpg",
+        "vote_average":  6.286
+    },
+    {
+        "id":  412201,
+        "imdb_id":  "tt4950192",
+        "title":  "The Fixer",
+        "overview":  "Romanian-born Radu Patru is a trainee at a prestigious French news network. Serving as a translator and general problem solver, or \"fixer,\" for the headlining journalists during his trial period, he\u0027s looking to make his big break. He sees his opportunity when two underage Romanian prostitutes are repatriated from France, creating an international scandal. Taking advantage of his language skills and local connections, Radu is prepared to do whatever it takes to interview one of the young girls. But as he ventures into tricky moral ground, he must stop to ask himself if, as an aspiring journalist, he can live with the consequences of his actions, and if, as a father, he\u0027s setting a good example for his son.",
+        "release_date":  "2017-03-22",
+        "poster_path":  "/aCTDG1kKROuCt3jnTkiFKmY3BHq.jpg",
+        "backdrop_path":  "/240ZADOdI5WjD0eBFyiNh3KQl4m.jpg",
+        "vote_average":  6.5
+    },
+    {
+        "id":  440249,
+        "imdb_id":  "tt5168832",
+        "title":  "After Porn Ends 2",
+        "overview":  "After Porn Ends 2 picks up where its predecessor left off and not only turns back the clock to meet the oldest living stars in adult film\u0027s history, but goes in depth with some of Its most current retirees and juxtaposes their experiences in a life after porn. Delving deeper into society\u0027s ongoing stigmas of race, misogyny, and the reality of decreasing opportunities for these former VHS box cover stars. For some, their careers in adult entertainment is accepted proudly and without regret. In fact, it seems to have proven to be the pathway to their current happiness and inner peace. For others, however, a career in porn has proven to be a conduit to certain despair as they struggle to find a way to bury their past and emerge with a new career or calling.",
+        "release_date":  "2017-03-28",
+        "poster_path":  "/rfItXrtDGILwsCdmgVxX79phFuI.jpg",
+        "backdrop_path":  "/3Sq9c1Lxh75neQ2BC9thaTO74FZ.jpg",
+        "vote_average":  5.335
+    },
+    {
+        "id":  1419406,
+        "imdb_id":  "tt34610311",
+        "title":  "The Shadow\u0027s Edge",
+        "overview":  "Macau Police brings the tracking expert police officer out of retirement to help catch a dangerous group of professional thieves.",
+        "release_date":  "2025-08-16",
+        "poster_path":  "/e0RU6KpdnrqFxDKlI3NOqN8nHL6.jpg",
+        "backdrop_path":  "/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.jpg",
+        "vote_average":  7.218
+    },
+    {
+        "id":  387592,
+        "imdb_id":  "tt4701724",
+        "title":  "Early Man",
+        "overview":  "Dug, along with his sidekick Hognob, unite a cavemen tribe to save their hidden valley from being spoiled and, all together as a team, to face the menace of a mysterious and mighty enemy, on the turf of an ancient and sacred sport.",
+        "release_date":  "2018-01-26",
+        "poster_path":  "/5iW2rntwLZoGlFCYYy8TjHyblbw.jpg",
+        "backdrop_path":  "/o3XZUwX37gqhpoQcBpqturGTF3Z.jpg",
+        "vote_average":  6.139
+    },
+    {
+        "id":  1084577,
+        "imdb_id":  "tt26735622",
+        "title":  "Balls Up",
+        "overview":  "Two marketing executives go \"balls out\" and pitch a bold full‑coverage condom sponsorship with the World Cup. After their drunken celebration in Brazil sparks a global scandal, they must outrun furious fans, criminals, and power-hungry officials to salvage their careers and make it home alive.",
+        "release_date":  "2026-04-15",
+        "poster_path":  "/xwvJ3WzdJ1OCuDoY8LAxBUlQyig.jpg",
+        "backdrop_path":  "/jRsjWwZzI39bTm44FNhRtiICd9k.jpg",
+        "vote_average":  5.7
+    },
+    {
+        "id":  1368166,
+        "imdb_id":  "tt27543632",
+        "title":  "The Housemaid",
+        "overview":  "Trying to escape her past, Millie Calloway accepts a job as a live-in housemaid for the wealthy Nina and Andrew Winchester. But what begins as a dream job quickly unravels into something far more dangerous—a sexy, seductive game of secrets, scandal, and power.",
+        "release_date":  "2025-12-18",
+        "poster_path":  "/cWsBscZzwu5brg9YjNkGewRUvJX.jpg",
+        "backdrop_path":  "/zTnAnYIn0Iv3cn0ZHlzLhou3ybm.jpg",
+        "vote_average":  7.229
+    },
+    {
+        "id":  1304313,
+        "imdb_id":  "tt32612507",
+        "title":  "Lee Cronin\u0027s The Mummy",
+        "overview":  "The young daughter of a journalist disappears into the desert without a trace—eight years later, the broken family is shocked when she is returned to them, as what should be a joyful reunion turns into a living nightmare.",
+        "release_date":  "2026-04-15",
+        "poster_path":  "/8L8efNkz8rUmwR7sV0g3vnC9yjn.jpg",
+        "backdrop_path":  "/zc08qkHtWfZ2cQGQBK1S5yafJmR.jpg",
+        "vote_average":  6.768
+    },
+    {
+        "id":  1270125,
+        "imdb_id":  "tt27811009",
+        "title":  "Monster on a Plane",
+        "overview":  "An exotic animal turns into a monster and becomes a deadly danger for all passengers.",
+        "release_date":  "2024-11-07",
+        "poster_path":  "/22hkFwic8nWhj5NKUTA39Fw7Hky.jpg",
+        "backdrop_path":  "/apMl96DIrewME0s87rP733yb37Q.jpg",
+        "vote_average":  4.7
+    },
+    {
+        "id":  1159559,
+        "imdb_id":  "tt27047903",
+        "title":  "Scream 7",
+        "overview":  "When a new Ghostface killer emerges in the quiet town where Sidney Prescott has built a new life, her darkest fears are realized as her daughter becomes the next target. Determined to protect her family, Sidney must face the horrors of her past to put an end to the bloodshed once and for all.",
+        "release_date":  "2026-02-25",
+        "poster_path":  "/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg",
+        "backdrop_path":  "/t9J2HXaDuJR7bvIG9XF7mttn4VY.jpg",
+        "vote_average":  6.056
+    },
+    {
+        "id":  1499885,
+        "imdb_id":  "tt36332085",
+        "title":  "The Red Book Ritual: Gates of Hell",
+        "overview":  "Robbie embarks on a dangerous quest to contact his deceased girlfriend through a ritual that summons the dead. He heads to an abandoned house with a group of young people to perform the \"Red Book Ritual.\" But during the summoning, supernatural forces awaken. Now they must face ancient horrors to survive.",
+        "release_date":  "2025-09-18",
+        "poster_path":  "/dOLRsvnjOB6rCx6olyRsMT92PxI.jpg",
+        "backdrop_path":  "/mXeINZrLRKbIw51spnruegjmLBS.jpg",
+        "vote_average":  6.071
+    },
+    {
+        "id":  1290417,
+        "imdb_id":  "tt32362890",
+        "title":  "Thrash",
+        "overview":  "When a Category 5 hurricane decimates a coastal town, the storm surge brings devastation, chaos, and something far more frightening onto shore: hungry sharks.",
+        "release_date":  "2026-04-10",
+        "poster_path":  "/adk8weka3O5648g3de4z3y4aE7G.jpg",
+        "backdrop_path":  "/3ooXDVaz4xHKtwe4lkmF1gNopOC.jpg",
+        "vote_average":  5.9
+    },
+    {
+        "id":  16423,
+        "imdb_id":  "tt0409673",
+        "title":  "Love and Magnets",
+        "overview":  "Back in Montréal after spending five years in Guatemala, Julie moves in with her elder sister, Jeanne, a chronic liar and woman of rather loose sexual morals... Disillusioned with love, Jeanne is nevertheless engaged to Noël. However, Jeanne and Noël lead separate lives, and only communicate by leaving each other messages on the fridge.Everything suddenly becomes very complicated. Jeanne compels Julie to take up with Noël so she can have a fling with a passionate musician. Noël, meanwhile, sets Julie up with Michel -- without Jeanne\u0027s knowledge.  Julie mixes things up even further. Egged on by her friend Marie-Ève, she alters the contents of the messages on the fridge in an attempt to breathe new life into Jeanne and Noël\u0027s relationship. Along the way, she also begins to fall for the seductive Michel. The tables are turned on everyone... In the game of love and truth, illusion leads to betrayal, but love conquers all.",
+        "release_date":  "2004-10-01",
+        "poster_path":  "/bfrAPx5MlLlx5DmOAquiaLBJ1Io.jpg",
+        "backdrop_path":  "/8Ebtc10VNLnX3xAYgkk7Ao3NrNh.jpg",
+        "vote_average":  6.353
+    },
+    {
+        "id":  1414413,
+        "imdb_id":  "tt32394984",
+        "title":  "Brothers Under Fire",
+        "overview":  "Captain Jordan Wright\u0027s squadron on leave for a wedding in Mexico encounters a murderous cartel. As Jordan tries to lead survivors to safety, war erupts between his squad and the cartel, forcing him into a battle to save his men.",
+        "release_date":  "2026-04-15",
+        "poster_path":  "/e5EKqk9V7N3w0WvYFhl6wSVrMp0.jpg",
+        "backdrop_path":  "/6D2NsU3FIQVthPgjT6RAsX58qZ6.jpg",
+        "vote_average":  6.333
+    },
+    {
+        "id":  545339,
+        "imdb_id":  "tt0311411",
+        "title":  "Kranti",
+        "overview":  "Inspector Abhay Pratap Singh is a young, honest and diligent police inspector, serving with Bombay Police, and comes from a respectable family, which consists of sister Anu; mom Sushma; and dad, Awadesh, who is also the Commissioner of Police. Abhay has long suspected Mahendra Pratap Rana of being a criminal don, who also has links with terrorists, but thus far has been unable to gather any material evidence for the police to lay charges. The Commissioner is unable to accept his son\u0027s word, as Mahendra is well-known, influential, and wealthy. Abhay continues to pursue his investigation despite of warnings from his superiors, and is ultimately suspended from duty. Now even after suspension, Abhay has come to know that the life of Coloney Krishnakanth is threatened by Mahendra, and reaches out to his dad, who will not have anything to do with him anymore. It will upto Abhay to save the life of Krishnakanth, against all odds that are stacked up against him.",
+        "release_date":  "2002-03-27",
+        "poster_path":  "/dH9jHruCCwPHEdNq6KY5iL6hdA4.jpg",
+        "backdrop_path":  "/s8QGlg2rnVlYkUl4qBHatkZgnJs.jpg",
+        "vote_average":  7.0
+    },
+    {
+        "id":  157336,
+        "imdb_id":  "tt0816692",
+        "title":  "Interstellar",
+        "overview":  "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+        "release_date":  "2014-11-05",
+        "poster_path":  "/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+        "backdrop_path":  "/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
+        "vote_average":  8.5
+    },
+    {
+        "id":  846433,
+        "imdb_id":  "tt14857730",
+        "title":  "The Enforcer",
+        "overview":  "A noir thriller set in Miami, the film follows an enforcer who discovers his femme fatale boss has branched out into cyber sex trafficking, putting a young runaway he’s befriended at risk. He sacrifices everything to save the young girl from the deadly organization he’s spent his life building.",
+        "release_date":  "2022-09-22",
+        "poster_path":  "/72V1r1G8S87ELagVxjqAUdChMCt.jpg",
+        "backdrop_path":  "/Aqldsq65Nj1KAkQD2MzkZsAk5N5.jpg",
+        "vote_average":  7.032
+    },
+    {
+        "id":  58008,
+        "imdb_id":  "tt0077732",
+        "title":  "Night Nurse",
+        "overview":  "A dentist invites a elderly patient to stay at his home to recover, unaware that he is a jewel thief. He plans to steal a valuable diamond but then runs into a beautiful nurse who, aside from constantly stripping nude, has plans of her own.",
+        "release_date":  "1979-02-07",
+        "poster_path":  "/tzhBAhN35YjobVG3Ubm3ERnzhBL.jpg",
+        "backdrop_path":  "/5TO9LeUAdilHgq50veWqBpDejaU.jpg",
+        "vote_average":  5.217
+    },
+    {
+        "id":  755898,
+        "imdb_id":  "tt13186306",
+        "title":  "War of the Worlds",
+        "overview":  "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him... and from the rest of the world.",
+        "release_date":  "2025-07-29",
+        "poster_path":  "/yvirUYrva23IudARHn3mMGVxWqM.jpg",
+        "backdrop_path":  "/iZLqwEwUViJdSkGVjePGhxYzbDb.jpg",
+        "vote_average":  4.136
+    },
+    {
+        "id":  1010755,
+        "imdb_id":  "tt28682323",
+        "title":  "The Strangers: Chapter 3",
+        "overview":  "Tethered by a frightening conclusion, Maya and the Strangers are locked on an unavoidable, unforgiving collision course — a showdown that proves they’re far from strangers now.",
+        "release_date":  "2026-02-05",
+        "poster_path":  "/yPHwX78mcwJw3I6YOJ9qh2wQBFr.jpg",
+        "backdrop_path":  "/fPfDB0IHOqvmKIzFP9CA51OOS1N.jpg",
+        "vote_average":  5.5
+    },
+    {
+        "id":  419858,
+        "imdb_id":  "tt0001529",
+        "title":  "Captain Kate",
+        "overview":  "Two caravans meet on the desert, one headed by Howell and Clancy, two New York men, who are gathering animals for circus purposes, the other is led by an old animal tamer named Desmond and his beautiful daughter, whom the natives have nicknamed Capt. Kate. After exchanging cards, the caravans go their separate ways. Desmond is stricken and dies, leaving Kate alone. She assumes her father\u0027s perilous business, leading her party of native hunters after big game. Later, one of the hunters is stricken and the superstitious followers of Capt. Kate, recognizing the nature of the disease, abandon the hunt and their leader, one servant alone remaining faithful to his mistress. Kate, realizing that she can go no further without assistance, calls a halt and they erect a crude hut in which she is to live, while the servant goes in search of Clancy. Scene of Kate\u0027s isolated life and her dangers follow. She is besieged by wild animals, who make her life a long nightmare of peril.",
+        "release_date":  "1911-07-12",
+        "poster_path":  "/aK4oZ7AhiTZd7L5gidMyATIpEfh.jpg",
+        "backdrop_path":  "/wF8GgOCnkHRYJJcEM79KYVYKIf6.jpg",
+        "vote_average":  4.0
+    },
+    {
+        "id":  502356,
+        "imdb_id":  "tt6718170",
+        "title":  "The Super Mario Bros. Movie",
+        "overview":  "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
+        "release_date":  "2023-04-05",
+        "poster_path":  "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+        "backdrop_path":  "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
+        "vote_average":  7.589
+    },
+    {
+        "id":  73353,
+        "imdb_id":  "tt0411377",
+        "title":  "Man in the Mirror: The Michael Jackson Story",
+        "overview":  "Chronicles the rise and fall of pop king Michael Jackson.",
+        "release_date":  "2004-08-06",
+        "poster_path":  "/qhp25BXUEqIaDFQbC7YI3h2FSqD.jpg",
+        "backdrop_path":  "/sp4F5G1tNaKtRnl7Tw3AKkcdHQz.jpg",
+        "vote_average":  6.346
+    },
+    {
+        "id":  7451,
+        "imdb_id":  "tt0295701",
+        "title":  "xXx",
+        "overview":  "Xander Cage is your standard adrenaline junkie with no fear and a lousy attitude. When the US Government \"recruits\" him to go on a mission, he\u0027s not exactly thrilled. His mission: to gather information on an organization that may just be planning the destruction of the world, led by the nihilistic Yorgi.",
+        "release_date":  "2002-08-09",
+        "poster_path":  "/xeEw3eLeSFmJgXZzmF2Efww0q3s.jpg",
+        "backdrop_path":  "/2OHa6ukEq3Hce7Pc2kvu8wkmMFY.jpg",
+        "vote_average":  5.987
+    },
+    {
+        "id":  1510745,
+        "imdb_id":  "tt37538172",
+        "title":  "Bodycam",
+        "overview":  "A call to a quiet suburban home unleashes unthinkable carnage when two officers mistakenly shoot a man and his infant child, spiraling the tragedy into a fierce, unrelenting fall into the unknown.",
+        "release_date":  "2026-03-12",
+        "poster_path":  "/xFpBNcG3Dlr8mYF5Kz9Tizs3Pxn.jpg",
+        "backdrop_path":  "/vHoi1MddXOU7jbpEd8YVQzMDLnT.jpg",
+        "vote_average":  4.843
+    },
+    {
+        "id":  1446616,
+        "imdb_id":  "tt36118360",
+        "title":  "Tu Yaa Main",
+        "overview":  "A wannabe rapper from the outskirts of Mumbai and an affluent influencer elope to a coastal town, only to find themselves trapped in the pool of a derelict resort fighting for survival against the wrath of a ferocious crocodile.",
+        "release_date":  "2026-02-11",
+        "poster_path":  "/nUPnA0I1MTaZRVCsUQc5DS5JA8W.jpg",
+        "backdrop_path":  "/zIOBTZAqGwdKnOb5c6SvzxP7x86.jpg",
+        "vote_average":  6.28
+    },
+    {
+        "id":  1234731,
+        "imdb_id":  "tt33244668",
+        "title":  "Anaconda",
+        "overview":  "A group of friends facing mid-life crises head to the rainforest with the intention of remaking their favorite movie from their youth, only to find themselves in a fight for their lives against natural disasters, giant snakes and violent criminals.",
+        "release_date":  "2025-12-24",
+        "poster_path":  "/hBxN6dwrANN1ic3a4G9x6JZcR3C.jpg",
+        "backdrop_path":  "/swxhEJsAWms6X1fDZ4HdbvYBSf9.jpg",
+        "vote_average":  5.879
+    },
+    {
+        "id":  14612,
+        "imdb_id":  "tt0075807",
+        "title":  "Candleshoe",
+        "overview":  "When ex-con artist Harry claims that a secret treasure is hidden inside Candleshoe, an English estate, he creates an elaborate plan to find and steal the prize. By convincing a girl named Casey to impersonate the estate owner\u0027s long-lost granddaughter, Harry hopes to uncover the treasure\u0027s location. But when Casey has a change of heart, she must follow the clues and find the treasure, in order to save Candleshoe and stop Harry before it is too late.",
+        "release_date":  "1977-12-16",
+        "poster_path":  "/6Rq9u5fnS6PzWz9dgPQmBhgDvRJ.jpg",
+        "backdrop_path":  "/6NMedeS4pbfsPfhycL3XH3tCH8U.jpg",
+        "vote_average":  6.871
+    },
+    {
+        "id":  53526,
+        "imdb_id":  "tt0012303",
+        "title":  "I Do",
+        "overview":  "Comic adventures of newlyweds and children.",
+        "release_date":  "1921-09-11",
+        "poster_path":  "/veaD1X0Fcujc3ZC9HrIZygGQz6l.jpg",
+        "backdrop_path":  "/4GoY5XtIpALn66D2akKUDfYAdtf.jpg",
+        "vote_average":  5.96
+    },
+    {
+        "id":  4933,
+        "imdb_id":  "tt0051436",
+        "title":  "The Buccaneer",
+        "overview":  "During the War of 1812 against Britain: General Andrew Jackson has only 1,200 men left to defend New Orleans when he learns that a British fleet will arrive with 60 ships and 16,000 men to take the city. In this situation an island near the city becomes strategically important to both parties, but it\u0027s inhabited by the last big buccaneer: Jean Lafitte. Although Lafitte never attacks American ships, the governor hates him for selling merchandise without taxes - and is loved by the citizens for the same reason. When the big fight gets nearer, Lafitte is drawn between the fronts. His heart belongs to America, but his people urge him to join the party that\u0027s more likely to win.",
+        "release_date":  "1958-12-11",
+        "poster_path":  "/hUUg1IuxuKl54eyQfyu5tCZhI1g.jpg",
+        "backdrop_path":  "/89y96uZNPM46hFzwBylFCAXo8bQ.jpg",
+        "vote_average":  6.5
+    },
+    {
+        "id":  1265609,
+        "imdb_id":  "tt15940132",
+        "title":  "War Machine",
+        "overview":  "On one last grueling mission during Army Ranger training, a combat engineer must lead his unit in a fight against a giant otherworldly killing machine.",
+        "release_date":  "2026-02-12",
+        "poster_path":  "/5txx39hgkMY6iskk3oOX7nU34bE.jpg",
+        "backdrop_path":  "/6yeVcxFR0j08vlv2OlL6zbewm4D.jpg",
+        "vote_average":  7.239
+    },
+    {
+        "id":  840464,
+        "imdb_id":  "tt14850054",
+        "title":  "Greenland 2: Migration",
+        "overview":  "Having found the safety of the Greenland bunker after the comet Clarke decimated the Earth, the Garrity family must now risk everything to embark on a perilous journey across the wasteland of Europe to find a new home.",
+        "release_date":  "2026-01-07",
+        "poster_path":  "/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
+        "backdrop_path":  "/wns4x1GyxCudgOZRyhXKjXVJf3T.jpg",
+        "vote_average":  6.437
+    },
+    {
+        "id":  1115544,
+        "imdb_id":  "tt27552099",
+        "title":  "Mike \u0026 Nick \u0026 Nick \u0026 Alice",
+        "overview":  "Two gangsters and the woman they love try to survive the most dangerous night of their lives. As if that wasn’t enough, there’s one wild ingredient added to the mix: a time machine.",
+        "release_date":  "2026-03-14",
+        "poster_path":  "/7F0jc75HrSkLVcvOXR2FXAIwuEv.jpg",
+        "backdrop_path":  "/uNToXatdunyvWXyXMrTI1nLvh6r.jpg",
+        "vote_average":  6.781
+    },
+    {
+        "id":  300090,
+        "imdb_id":  "tt2241116",
+        "title":  "White Rabbit",
+        "overview":  "A bullied student sees visions of a rabbit he was forced to kill as a child, and those visions propel him into a state where his imagination causes him to carry out violent acts.",
+        "release_date":  "2013-09-20",
+        "poster_path":  "/n9iPAVxdqoYbmTeogiXwyQbLHQz.jpg",
+        "backdrop_path":  "/acx2qYDXfkrSdSgWwr2kpA5F2BW.jpg",
+        "vote_average":  6.1
+    },
+    {
+        "id":  1193501,
+        "imdb_id":  "tt29550683",
+        "title":  "Whistle",
+        "overview":  "A misfit group of unwitting high school students stumble upon a cursed object, an ancient Aztec Death Whistle. They discover that blowing the whistle and the terrifying sound it emits will summon their future deaths to hunt them down.",
+        "release_date":  "2026-01-20",
+        "poster_path":  "/eGxPyseSnEZBMJaopGfRUO9HSYx.jpg",
+        "backdrop_path":  "/yJi6g0CnsqANLNuVaRX28tZxeHX.jpg",
+        "vote_average":  6.169
+    },
+    {
+        "id":  1303055,
+        "imdb_id":  "tt32323148",
+        "title":  "A Breed Apart",
+        "overview":  "When Violet accepts an invitation to a private island with some of the world\u0027s most famous social influencers, she expects a weekend of unrivaled viral opportunity. She soon becomes part of her own horrific reality show when the guests are pitted against each other to capture the island\u0027s legendary man-eating dogs before they become victims of the monstrous canines.",
+        "release_date":  "2025-05-16",
+        "poster_path":  "/6IiNUUV6H2W1wUc8e1w4GfuQCOE.jpg",
+        "backdrop_path":  "/jrpLhYHxsE7XVZCtP8LZrfhlvIy.jpg",
+        "vote_average":  5.3
+    }
+]
