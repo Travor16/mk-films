@@ -50,15 +50,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal & Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <div className="flex items-center space-x-2 text-white/60 text-sm">
-              <Mail className="w-4 h-4" />
-              <a href="mailto:contact@mkfilms.com" className="hover:text-luxury-red transition">
-                contact@mkfilms.com
-              </a>
-            </div>
+            <h3 className="text-white font-semibold mb-4">Legal & Info</h3>
+            <ul className="space-y-2 text-white/60 text-sm">
+              <li>
+                <Link to="/about" className="hover:text-luxury-red transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="hover:text-luxury-red transition">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center space-x-2 text-white/60 text-sm mt-4">
+                  <Mail className="w-4 h-4" />
+                  <a href="mailto:contact@mkfilms.com" className="hover:text-luxury-red transition">
+                    contact@mkfilms.com
+                  </a>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
