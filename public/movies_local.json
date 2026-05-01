@@ -1,0 +1,32 @@
+﻿[
+  {
+    "id": "local_001",
+    "title": "VJ Junior - Agasobanuye",
+    "language": "Luganda",
+    "overview": "A thrilling Ugandan action movie featuring VJ Junior in his best performance yet.",
+    "release_date": "2025-01-15",
+    "poster_url": "https://via.placeholder.com/300x450?text=VJ+Junior",
+    "stream_url": "https://usc1.contabostorage.com/1d8a252f28184ed5bba83bce6f3d1e90:films/VJ_JUNIOR_AGASOBANUTE.mp4",
+    "rating": 8.5
+  },
+  {
+    "id": "local_002",
+    "title": "VJ Ice P - Struggle",
+    "language": "Luganda",
+    "overview": "A powerful drama about survival and ambition in Kampala.",
+    "release_date": "2025-02-10",
+    "poster_url": "https://via.placeholder.com/300x450?text=VJ+Ice+P",
+    "stream_url": "https://usc1.contabostorage.com/1d8a252f28184ed5bba83bce6f3d1e90:films/VJ_ICE_P_STRUGGLE.mp4",
+    "rating": 8.2
+  },
+  {
+    "id": "local_003",
+    "title": "VJ Kevo - City Life",
+    "language": "Luganda",
+    "overview": "A young man navigates the challenges of city life in Kampala.",
+    "release_date": "2025-03-20",
+    "poster_url": "https://via.placeholder.com/300x450?text=VJ+Kevo",
+    "stream_url": "https://usc1.contabostorage.com/1d8a252f28184ed5bba83bce6f3d1e90:films/VJ_KEVO_CITY_LIFE.mp4",
+    "rating": 7.9
+  }
+]
